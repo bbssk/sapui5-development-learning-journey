@@ -78,7 +78,7 @@
                     "earlyRequests": true
                 }
             },
-            "": {
+            "bhargav": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/data.json"
             }

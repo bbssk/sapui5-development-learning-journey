@@ -53,7 +53,7 @@
 
             <Table headerText="Customers" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto"
                    mode="SingleSelectLeft" selectionChange=".onCustomerChange"
-                   items="{/Customers}">
+                   items="{bhargav>/Customers}">
                 <columns>
                      <Column>
                         <header>
@@ -89,18 +89,18 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <ObjectIdentifier title="{CustomerName}"/>
-                            <Text text="{Street}"/>
-                            <Text text="{PostCode}"/>
-                            <Text text="{City}"/>
-                            <Text text="{Country}"/>
-                            <Text text="{Email}"/>
+                            <ObjectIdentifier title="{bhargav>CustomerName}"/>
+                            <Text text="{bhargav>Street}"/>
+                            <Text text="{bhargav>PostCode}"/>
+                            <Text text="{bhargav>City}"/>
+                            <Text text="{bhargav>Country}"/>
+                            <Text text="{bhargav>Email}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
 
-            <Table id="bookingTable" headerText="Bookings" items="{_Bookings}" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
+            <Table id="bookingTable" headerText="Bookings" items="{bhargav>_Bookings}" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
                 <columns>
                     <Column>
                         <header>
@@ -136,14 +136,14 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <ObjectIdentifier title="{AirlineID}"/>
-                            <ObjectIdentifier title="{ConnectionNumber}"/> 
-                            <ObjectIdentifier title="{FlightDate}"/>
-                            <Text text="{Class}"/>
+                            <ObjectIdentifier title="{bhargav>AirlineID}"/>
+                            <ObjectIdentifier title="{bhargav>ConnectionNumber}"/> 
+                            <ObjectIdentifier title="{bhargav>FlightDate}"/>
+                            <Text text="{bhargav>Class}"/>
                             <ObjectNumber
-                                number="{ForeignCurrencyPayment}"
-							    unit="{ForeignCurrency}"/>
-                            <Text text="{IsCancelled}"/>
+                                number="{bhargav>ForeignCurrencyPayment}"
+							    unit="{bhargav>ForeignCurrency}"/>
+                            <Text text="{bhargav>IsCancelled}"/>
                         </cells>
                     </ColumnListItem>
                 </items>

@@ -39,8 +39,10 @@ sap.ui.define([
             },
 
             onCustomerChange: function (oEvent) {
-                var oBindingContext = oEvent.getParameter("listItem").getBindingContext();
-                this.byId("bookingTable").setBindingContext(oBindingContext);
+                // var oBindingContext = oEvent.getParameter("listItem").getBindingContext();
+                // this.byId("bookingTable").setBindingContext(oBindingContext);
+                var oCtx = oEvent.getParameter("listItem").getBindingContext("bhargav");
+                this.byId("bookingTable").setBindingContext(oCtx, "bhargav");
             }
 
         });
