@@ -9,6 +9,18 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("sap.training.exc.controller.Detail", {
+
+            onInit: function () {
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.getRoute("detail").attachPatternMatched(this._onObjectMatched, this);
+            },
+
+            _onObjectMatched: function (oEvent) {
+                this.getView().bindElement("/UX_Customer" + oEvent.getParameter("arguments").customerId);
+                console.log("optional param -----",oEvent.getParameters().arguments.optionalParam);
+                console.log("query -----",oEvent.getParameters().arguments['?query']);
+            },
+
             onNavBack: function () {
                 var oHistory = History.getInstance();
                 var sPreviousHash = oHistory.getPreviousHash();

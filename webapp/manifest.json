@@ -113,7 +113,7 @@
                 },
                 {
                     "name": "detail",
-                    "pattern": "detail",
+                    "pattern": "detail/{customerId}/:optionalParam:/:?query:",
                     "target": [
                         "detail"
                     ]

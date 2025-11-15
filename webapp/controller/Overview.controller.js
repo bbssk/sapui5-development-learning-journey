@@ -65,9 +65,27 @@ sap.ui.define([
                 oBinding.filter(aFilter);
             },
 
-            onNavToDetails: function () {
+            // onNavToDetails: function () {
+            //     var oRouter = this.getOwnerComponent().getRouter();
+            //     oRouter.navTo("detail");
+
+            // },
+
+            onNavToDetails: function (oEvent) {
+                var oItem = oEvent.getSource();
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("detail");
+
+                oRouter.navTo("detail", {
+                    customerId: oItem.getBindingContext().getPath().substring("/UX_Customer".length),
+                    //optionalParam is not mandatory
+                    optionalParam: "bhargav",
+                    //query is not mandatory
+                    "?query": {
+                        search: "laptop",
+                        sort: "price",
+                        filter: "active"
+                    }
+                });
             }
 
         });
