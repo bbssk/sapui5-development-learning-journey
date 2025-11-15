@@ -49,6 +49,8 @@ sap.ui.define([
             onCustomerChange: function (oEvent) {
                 var oBindingContext = oEvent.getParameter("listItem").getBindingContext();
                 this.byId("bookingTable").setBindingContext(oBindingContext);
+                //Requests associated with this submit mode are sent in a batch request via sap.ui.model.odata.v4.ODataModel#submitBatch()
+                this.getOwnerComponent().getModel().submitBatch("FAST");
             },
 
             onFilterCustomers: function (oEvent) {

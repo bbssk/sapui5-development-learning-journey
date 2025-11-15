@@ -6,7 +6,11 @@
 
      <Page title="{i18n>overviewPageTitle}">
         <content>
-            <Panel headerText="{i18n>customerPanelHeader}" expandable="{= !${device>/system/desktop} }" expanded="{device>/system/desktop}" class="sapUiResponsiveMargin sapUiHideOnPhone" width="auto">
+            <!-- direct -->
+            <Panel headerText="{i18n>customerPanelHeader}" expandable="{= !${device>/system/desktop} }" expanded="{device>/system/desktop}" class="sapUiResponsiveMargin sapUiHideOnPhone" width="auto"
+            binding="{path:'/UX_Customer(00505604-4e85-1edd-818f-21e64b9cd2cf)',
+                      parameters: { $$updateGroupId: '$direct', $$groupId: '$direct' } }"  
+            >
 				<content>								
                     <f:SimpleForm layout="ColumnLayout" editable="true">
                         <f:toolbar>
@@ -24,7 +28,7 @@
                                 <Input value="{customer>/Form}"/>
 
                                 <Label text="{i18n>nameLabelText}"/>
-                                <Input value="{customer>/CustomerName}" valueLiveUpdate="true"/>
+                                <Input value="{CustomerName}" valueLiveUpdate="true"/>
                                
                                 <Label text="{i18n>discountLabelText}"/>
                                 <Input value="{ path: 'customer>/Discount',
@@ -33,7 +37,7 @@
 
                             <core:Title text="{i18n>addressDataFormContainerTitle}"/>
                                 <Label text="{i18n>streetLabelText}"/>
-                                <Input value="{customer>/Street}"/>
+                                <Input value="{Street}"/>
 
                                 <Label text="{i18n>postcodeLabelText}"/>
                                 <Input value="{customer>/PostCode}"/>
@@ -54,10 +58,10 @@
                     </f:SimpleForm>
                 </content>
             </Panel>
-
+            <!-- $auto or $auto.direct -->
             <Table id="customerTable" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto"
                    mode="SingleSelectLeft" selectionChange=".onCustomerChange"
-                   items="{ path: '/UX_Customer',
+                   items="{ path: '/UX_Customer', parameters: { $$updateGroupId: '$direct', $$groupId: '$auto' },
                             sorter: [ {path: 'City', group: true}, {path: 'CustomerName'} ] }">
                 <headerToolbar>
                     <Toolbar>
@@ -111,8 +115,10 @@
                     </ColumnListItem>
                 </items>
             </Table>
-
-            <Table id="bookingTable" headerText="{i18n>bookingTableHeader}" items="{_Bookings}" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
+            <!-- FAST -->
+            <Table id="bookingTable" headerText="{i18n>bookingTableHeader}" 
+            items="{path:'_Bookings' , parameters: { $$updateGroupId: '$direct', $$groupId: 'FAST' }}" 
+            growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
                 <columns>
                     <Column>
                         <header>
